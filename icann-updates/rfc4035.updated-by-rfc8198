@@ -1,0 +1,16 @@
+#A Paul Hoffman
+#C Aggressive use of a DNSSEC-validated cache from RFC 8198
+#L 1168
+<p>The abstract of @@RFC8198@@ says
+"This document updates RFC 4035 by allowing validating resolvers to
+generate negative answers based upon NSEC/NSEC3 records and positive
+answers in the presence of wildcards."
+In specific, it replaces this pargraph ("In theory, a resolver...") with:
+<br>
+<pre>
+Once the records are validated, DNSSEC-enabled validating 
+resolvers SHOULD use wildcards and NSEC/NSEC3 resource records
+to generate positive and negative responses until the
+effective TTLs or signatures for those records expire.
+</pre>
+</p>

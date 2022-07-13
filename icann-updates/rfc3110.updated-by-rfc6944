@@ -1,0 +1,7 @@
+#A Paul Hoffman
+#C Implementation status set by RFC 6944
+#L 1
+<p>
+Section 2.3 of RFC 6944 says that the status of RSASHA1 is Must Implement.
+Note that RFC 6944 is obsoleted by @@RFC8624@@, which keeps the same recommendation to implement.
+</p>

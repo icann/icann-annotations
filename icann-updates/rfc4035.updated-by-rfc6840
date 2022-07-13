@@ -1,0 +1,338 @@
+#A Paul Hoffman
+#C Updates from RFC 6840
+#L 1
+<p>@@RFC6840@@, "Clarifications and Implementation Notes for DNSSEC",
+updates RFC 4035 in many places throughout the document.</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 upgrades MAY to MUST for the BAD cache
+#S 4.7
+<p>Section 3.1 of @@RFC6840@@ says:
+<br>
+<pre>
+Section 4.7 of [RFC4035] permits security-aware resolvers to
+implement a BAD cache.  That guidance has changed: security-aware
+resolvers SHOULD implement a BAD cache as described in [RFC4035].
+
+This change in guidance is based on operational experience with
+DNSSEC administrative errors leading to significant increases in DNS
+traffic, with an accompanying realization that such events are more
+likely and more damaging than originally supposed.  An example of one
+such event is documented in "Rolling Over DNSSEC Keys" [Huston].
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 updates nonexistence proofs
+#S 5.4
+<p>Section 4.1 of @@RFC6840@@ says:
+<br>
+<pre>
+Section 5.4 of [RFC4035] under-specifies the algorithm for checking
+nonexistence proofs.  In particular, the algorithm as presented would
+allow a validator to interpret an NSEC or NSEC3 RR from an ancestor
+zone as proving the nonexistence of an RR in a child zone.
+
+An "ancestor delegation" NSEC RR (or NSEC3 RR) is one with:
+
+o  the NS bit set,
+
+o  the Start of Authority (SOA) bit clear, and 
+
+o  a signer field that is shorter than the owner name of the NSEC RR,
+	 or the original owner name for the NSEC3 RR.
+
+Ancestor delegation NSEC or NSEC3 RRs MUST NOT be used to assume
+nonexistence of any RRs below that zone cut, which include all RRs at
+that (original) owner name other than DS RRs, and all RRs below that
+owner name regardless of type.
+
+Similarly, the algorithm would also allow an NSEC RR at the same
+owner name as a DNAME RR, or an NSEC3 RR at the same original owner
+name as a DNAME, to prove the nonexistence of names beneath that
+DNAME.  An NSEC or NSEC3 RR with the DNAME bit set MUST NOT be used
+to assume the nonexistence of any subdomain of that NSEC/NSEC3 RR's
+(original) owner name.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 says how to validate responses to an ANY query
+#S 5.3
+<p>Section 4.2 of @@RFC6840@@ says:
+<br>
+<pre>
+[RFC4035] does not address how to validate responses when QTYPE=*.
+As described in Section 6.2.2 of [RFC1034], a proper response to
+QTYPE=* may include a subset of the RRsets at a given name.  That is,
+it is not necessary to include all RRsets at the QNAME in the
+response.
+
+When validating a response to QTYPE=*, all received RRsets that match
+QNAME and QCLASS MUST be validated.  If any of those RRsets fail
+validation, the answer is considered Bogus.  If there are no RRsets
+matching QNAME and QCLASS, that fact MUST be validated according to
+the rules in Section 5.4 of [RFC4035] (as clarified in this
+document).  To be clear, a validator must not expect to receive all
+records at the QNAME in response to QTYPE=*.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 describes how to check for responses chained through a CNAME
+#S 5
+<p>Section 4.3 of @@RFC6840@@ says:
+<br>
+<pre>
+Section 5 of [RFC4035] says nothing explicit about validating
+responses based on (or that should be based on) CNAMEs.  When
+validating a NOERROR/NODATA response, validators MUST check the CNAME
+bit in the matching NSEC or NSEC3 RR's type bitmap in addition to the
+bit for the query type.
+
+Without this check, an attacker could successfully transform a
+positive CNAME response into a NOERROR/NODATA response by (for
+example) simply stripping the CNAME RRset from the response.  A naive
+validator would then note that the QTYPE was not present in the
+matching NSEC/NSEC3 RR, but fail to notice that the CNAME bit was
+set; thus, the response should have been a positive CNAME response.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 gives more detail on insecure delegation proofs
+#S 5.2
+<p>Section 4.4 of @@RFC6840@@ says:
+<br>
+<pre>
+Section 5.2 of [RFC4035] specifies that a validator, when proving a
+delegation is not secure, needs to check for the absence of the DS
+and SOA bits in the NSEC (or NSEC3) type bitmap.  The validator also
+MUST check for the presence of the NS bit in the matching NSEC (or
+NSEC3) RR (proving that there is, indeed, a delegation), or
+alternately make sure that the delegation is covered by an NSEC3 RR
+with the Opt-Out flag set.
+
+Without this check, an attacker could reuse an NSEC or NSEC3 RR
+matching a non-delegation name to spoof an unsigned delegation at
+that name.  This would claim that an existing signed RRset (or set of
+signed RRsets) is below an unsigned delegation, thus not signed and
+vulnerable to further attack.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 updates how to handle unknown or unsupported message digest algorithms
+#L 1460
+<p>Section 5.2 of @@RFC6840@@ says:
+<br>
+<pre>
+In other words, when determining the security status of a zone, a
+validator disregards any authenticated DS records that specify
+unknown or unsupported DNSKEY algorithms.  If none are left, the zone
+is treated as if it were unsigned.
+
+This document modifies the above text to additionally disregard
+authenticated DS records using unknown or unsupported message digest
+algorithms.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 updates how to handle private algorithms
+#S 5.2
+<p>Section 5.3 of @@RFC6840@@ gives an extensive discussion
+of how to handle zones that are signed with private algorithms.
+It extends the processing given in Section 5.2 of RFC 4035.
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 updates how to handle local policy when there are multiple RRSIGs
+#S 5.3.3
+<p>Section 5.4 of @@RFC6840@@ says:
+<br>
+<pre>
+When multiple RRSIGs cover a given RRset, Section 5.3.3 of [RFC4035]
+suggests that "the local resolver security policy determines whether
+the resolver also has to test these RRSIG RRs and how to resolve
+conflicts if these RRSIG RRs lead to differing results".
+
+This document specifies that a resolver SHOULD accept any valid RRSIG
+as sufficient, and only determine that an RRset is Bogus if all
+RRSIGs fail validation.
+
+If a resolver adopts a more restrictive policy, there's a danger that
+properly signed data might unnecessarily fail validation due to cache
+timing issues.  Furthermore, certain zone management techniques, like
+the Double Signature Zone Signing Key Rollover method described in
+Section 4.2.1.2 of [RFC6781], will not work reliably.  Such a
+resolver is also vulnerable to malicious insertion of gibberish
+signatures.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 defines the semantics of the AD bit
+#S 4.6
+<p>Section 5.7 of @@RFC6840@@ says:
+<br>
+<pre>
+The semantics of the Authentic Data (AD) bit in the query were
+previously undefined.  Section 4.6 of [RFC4035] instructed resolvers
+to always clear the AD bit when composing queries.
+
+This document defines setting the AD bit in a query as a signal
+indicating that the requester understands and is interested in the
+value of the AD bit in the response.  This allows a requester to
+indicate that it understands the AD bit without also requesting
+DNSSEC data via the DO bit.
+</pre>
+</p>
+<p>
+Further, Section 5.8 of @@RFC6840@@ says:
+<br>
+<pre>
+Section 3.2.3 of [RFC4035] describes under which conditions a
+validating resolver should set or clear the AD bit in a response.  In
+order to interoperate with legacy stub resolvers and middleboxes that
+neither understand nor ignore the AD bit, validating resolvers SHOULD
+only set the AD bit when a response both meets the conditions listed
+in Section 3.2.3 of [RFC4035], and the request contained either a set
+DO bit or a set AD bit.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 defines the semantics of the AD bit
+#S 3.2.3
+<p>
+Section 5.8 of @@RFC6840@@ says:
+<br>
+<pre>
+Section 3.2.3 of [RFC4035] describes under which conditions a
+validating resolver should set or clear the AD bit in a response.  In
+order to interoperate with legacy stub resolvers and middleboxes that
+neither understand nor ignore the AD bit, validating resolvers SHOULD
+only set the AD bit when a response both meets the conditions listed
+in Section 3.2.3 of [RFC4035], and the request contained either a set
+DO bit or a set AD bit.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 says to always set the CD bit on queries
+#S 3.2.2
+<p>
+Section 5.9 of @@RFC6840@@ says:
+<br>
+<pre>
+When processing a request with the Checking Disabled (CD) bit set, a
+resolver SHOULD attempt to return all response data, even data that
+has failed DNSSEC validation.  Section 3.2.2 of [RFC4035] requires a
+resolver processing a request with the CD bit set to set the CD bit
+on its upstream queries.
+
+This document further specifies that validating resolvers SHOULD set
+the CD bit on every upstream query.  This is regardless of whether
+the CD bit was set on the incoming query or whether it has a trust
+anchor at or above the QNAME.
+
+[RFC4035] is ambiguous about what to do when a cached response was
+obtained with the CD bit unset, a case that only arises when the
+resolver chooses not to set the CD bit on all upstream queries, as
+specified above.  In the typical case, no new query is required, nor
+does the cache need to track the state of the CD bit used to make a
+given query.  The problem arises when the cached response is a server
+failure (RCODE 2), which may indicate that the requested data failed
+DNSSEC validation at an upstream validating resolver.  ([RFC2308]
+permits caching of server failures for up to five minutes.)  In these
+cases, a new query with the CD bit set is required.
+</pre>
+</p>
+<p>
+Be sure to read Appendix B of @@RFC6840@@, which details
+the logic behind the recommendation to alwas set the CD bit on queries.
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 restates the mandatory algorithm rules
+#L 290
+<p>
+Section 5.11 of @@RFC6840@@ says:
+<br>
+<pre>
+The last paragraph of Section 2.2 of [RFC4035] includes rules
+describing which algorithms must be used to sign a zone.  Since these
+rules have been confusing, they are restated using different language
+here:
+
+   The DS RRset and DNSKEY RRset are used to signal which algorithms
+   are used to sign a zone.  The presence of an algorithm in either a
+   zone's DS or DNSKEY RRset signals that that algorithm is used to
+   sign the entire zone.
+
+   A signed zone MUST include a DNSKEY for each algorithm present in
+   the zone's DS RRset and expected trust anchors for the zone.  The
+   zone MUST also be signed with each algorithm (though not each key)
+   present in the DNSKEY RRset.  It is possible to add algorithms at
+   the DNSKEY that aren't in the DS record, but not vice versa.  If
+   more than one key of the same algorithm is in the DNSKEY RRset, it
+   is sufficient to sign each RRset with any subset of these DNSKEYs.
+   It is acceptable to sign some RRsets with one subset of keys (or
+   key) and other RRsets with a different subset, so long as at least
+   one DNSKEY of each algorithm is used to sign each RRset.
+   Likewise, if there are DS records for multiple keys of the same
+   algorithm, any subset of those may appear in the DNSKEY RRset.
+
+This requirement applies to servers, not validators.  Validators
+SHOULD accept any single valid path.  They SHOULD NOT insist that all
+algorithms signaled in the DS RRset work, and they MUST NOT insist
+that all algorithms signaled in the DNSKEY RRset work.  A validator
+MAY have a configuration option to perform a signature completeness
+test to support troubleshooting.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C Instructions on finding zone cuts
+#S C.8
+<p>
+Section 6.1 of @@RFC6840@@ says:
+<br>
+<pre>
+Appendix C.8 of [RFC4035] discusses sending DS queries to the servers
+for a parent zone but does not state how to find those servers.
+Specific instructions can be found in Section 4.2 of [RFC4035].
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 shows errors in Appendix C.1
+#S C.1
+<p>
+Section 6.3 of @@RFC6840@@ says:
+<br>
+<pre>
+The text in Appendix C.1 of [RFC4035] refers to the examples in
+Appendix B.1 as "x.w.example.com" while B.1 uses "x.w.example".  This
+is painfully obvious in the second paragraph where it states that the
+RRSIG labels field value of 3 indicates that the answer was not the
+result of wildcard expansion.  This is true for "x.w.example" but not
+for "x.w.example.com", which of course has a label count of 4
+(antithetically, a label count of 3 would imply the answer was the
+result of a wildcard expansion).
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 shows errors in Appendix C.1
+#S C.6
+<p>
+Section 6.3 of @@RFC6840@@ says:
+<br>
+<pre>
+The first paragraph of Appendix C.6 of [RFC4035] also has a minor
+error: the reference to "a.z.w.w.example" should instead be
+"a.z.w.example", as in the previous line.
+</pre>
+</p>

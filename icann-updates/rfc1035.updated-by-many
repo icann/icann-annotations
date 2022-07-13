@@ -1,0 +1,203 @@
+#A Paul Hoffman
+#C Many RFCs say they update RFC 1035, but don't
+#L 1
+<p>
+Many of the RFCs that are listed as updating RFC 1035 actually just
+mention it, but don't actually update anything here.
+For example, many of them simply define new RRtypes, which is not really an update
+to RFC 1035, just to the IANA registry it created.
+The RFCs that do update RFC 1035 are listed throughout this document.
+</p>
+####################
+#A Paul Hoffman
+#C RFC 1982 has a better definition of serial number arithmetic
+#L 1023
+<p>@@RFC1982@@ clarifies how serial number arithmetic should be performed.
+The abstract says "The DNS has long relied upon serial number arithmetic,
+a concept which has never really been defined, certainly not in an
+IETF document, though which has been widely understood.  This memo
+supplies the missing definition."
+</p>
+####################
+#A Paul Hoffman
+#C RFC 1996 expands on the definition of the fields in the SOA
+#L 1017
+<p>
+@@RFC1996@@, which defines the DNS NOTIFY mechanism,
+extensively uses the SOA fields for determining when a
+zone is updated. It says:
+<br>
+<pre>
+1.3. This document intentionally gives more definition to the roles
+of "Master," "Slave" and "Stealth" servers, their enumeration in NS
+RRs, and the SOA MNAME field.  In that sense, this document can be
+considered an addendum to [RFC1035].
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 1996 changes who to ask when refreshing
+#L 2134
+<p>
+@@RFC1996@@ says:
+<br>
+<pre>
+Note:
+	 Because a deep server dependency graph may have multiple paths
+	 from the primary master to any given slave, it is possible that
+	 a slave will receive a NOTIFY from one of its known masters even
+	 though the rest of its known masters have not yet updated their
+	 copies of the zone.  Therefore, when issuing a QUERY for the
+	 zone's SOA, the query should be directed at the known master who
+	 was the source of the NOTIFY event, and not at any of the other
+	 known masters.  This represents a departure from [RFC1035],
+	 which specifies that upon expiry of the SOA REFRESH interval,
+	 all known masters should be queried in turn.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 2181 and the TTLs on SOA records
+#L 588
+<p>
+Section 7.2 of @@RFC2181@@ says:
+<br>
+<pre>
+It may be observed that in section 3.2.1 of RFC1035, which defines
+the format of a Resource Record, that the definition of the TTL field
+contains a throw away line which states that the TTL of an SOA record
+should always be sent as zero to prevent caching.  This is mentioned
+nowhere else, and has not generally been implemented.
+Implementations should not assume that SOA records will have a TTL of
+zero, nor are they required to send SOA records with a TTL of zero.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 2308 adds $TTL to the master file format 
+#L 1805
+<p>
+Section 4 of @@RFC2308@@ says:
+<br>
+<pre>
+The Master File format [RFC 1035 Section 5] is extended to include
+the following directive:
+
+$TTL &amp;lt;TTL&amp;gt; [comment]
+
+All resource records appearing after the directive, and which do not
+explicitly include a TTL value, have their TTL set to the TTL given
+in the $TTL directive.  SIG records without a explicit TTL get their
+TTL from the "original TTL" of the SIG record [RFC 2065 Section 4.5].
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 3425 obsoletes IQUERY
+#L 1412
+<p>
+@@RFC3425@@ obsoletes IQUERY.
+</p>
+####################
+#A Paul Hoffman
+#C RFC 3425 obsoletes IQUERY
+#L 2221
+<p>
+@@RFC3425@@ obsoletes IQUERY.
+</p>
+####################
+#A Paul Hoffman
+#C RFC 4343 clarifies what is meant by upper-case and lower-case
+#L 417
+<p>All of @@RFC4343@@ is relevant to any discussion of the
+case of characters.</p>
+####################
+#A Paul Hoffman
+#C RFC 4343 clarifies what is meant by upper-case and lower-case
+#L 470
+<p>All of @@RFC4343@@ is relevant to any discussion of the
+case of characters.</p>
+####################
+#A Paul Hoffman
+#C RFC 4343 clarifies what is meant by upper-case and lower-case
+#L 542
+<p>All of @@RFC4343@@ is relevant to any discussion of the
+case of characters.</p>
+####################
+#A Paul Hoffman
+#C RFC 4343 clarifies what is meant by upper-case and lower-case
+#L 2039
+<p>All of @@RFC4343@@ is relevant to any discussion of the
+case of characters.</p>
+####################
+#A Paul Hoffman
+#C RFC 4343 clarifies what is meant by upper-case and lower-case
+#L 2181
+<p>All of @@RFC4343@@ is relevant to any discussion of the
+case of characters.</p>
+####################
+#A Paul Hoffman
+#C RFC 5936 re-specifies how AXFR works
+#L 1780
+<p>
+@@RFC5936@@ is a complete re-definition of AXFR. Its abstract says:
+"The definition of AXFR has proven insufficient in detail, thereby
+forcing implementations intended to be compliant to make assumptions,
+impeding interoperability.  Yet today we have a satisfactory set of
+implementations that do interoperate.  This document is a new
+definition of AXFR -- new in the sense that it records an accurate
+definition of an interoperable AXFR mechanism."
+</p>
+####################
+#A Paul Hoffman
+#C RFC 7766 clarifies TCP reordering
+#L 1721
+<p>
+@@RFC7766@@ describes the implementation requirements for DNS over TCP.
+Section 7 of RFC 7766 says:
+<br>
+<pre>
+RFC 1035 is ambiguous on the question of whether TCP responses may be
+reordered -- the only relevant text is in Section 4.2.1, which
+relates to UDP:
+
+	 Queries or their responses may be reordered by the network, or by
+	 processing in name servers, so resolvers should not depend on them
+	 being returned in order.
+
+For the avoidance of future doubt, this requirement is clarified.
+Authoritative servers and recursive resolvers are RECOMMENDED to
+support the preparing of responses in parallel and sending them out
+of order, regardless of the transport protocol in use.  Stub and
+recursive resolvers MUST be able to process responses that arrive in
+a different order than that in which the requests were sent,
+regardless of the transport protocol in use.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 8482 allows for minimal responses for ANY queries
+#L 667
+<p>
+@@RFC8482@@ gives guidance on what the proper response to
+and query for type ANY would be.
+In particular, Section 7 of RFC 8482 updates the processing
+instructions in RFC 1035 for ANY queries.
+</p>
+####################
+#A Paul Hoffman
+#C RFC 8767 allows caching of records past their TTL
+#L 1582
+<p>
+The abstract of @@RFC8767@@ says:
+"This document defines a method (serve-stale) for recursive resolvers
+to use stale DNS data to avoid outages when authoritative nameservers
+cannot be reached to refresh expired data."
+The reason this updates RFC 1034 is that the definition of TTL in
+RFC 1035 says that the TTL is
+"a 32 bit unsigned integer that specifies the time
+interval (in seconds) that the resource record may be
+cached before it should be discarded".
+RFC 8767 softens that "should" and describes various scenarios when
+it is acceptable to serve stale data.
+</p>

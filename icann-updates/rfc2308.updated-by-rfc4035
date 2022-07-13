@@ -1,0 +1,18 @@
+#A Paul Hoffman
+#C RFC 4035 updates negative caching for DNSSEC
+#L 1
+<p>
+Section 4.7 of @@RFC4035@@, "Caching BAD Data", says:
+<br>
+<pre>
+Conceptually, caching such data is similar to negative caching
+([RFC2308]), except that instead of caching a valid negative
+response, the resolver is caching the fact that a particular answer
+failed to validate.  This document refers to a cache of data with
+invalid signatures as a "BAD cache".
+</pre>
+</p>
+<p>
+Note that @@RFC4033@@ and @@RFC4034@@ say that they update
+RFC 2308, but don't.
+</p>

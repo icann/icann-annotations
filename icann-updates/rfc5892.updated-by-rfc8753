@@ -1,0 +1,8 @@
+#A Paul Hoffman
+#C New review procedure in RFC 8753
+#L 1
+<p>
+@@RFC8753@@ significantly updates this entire document to change the way that
+new characters in new versions of the Unicode Standard are included
+in IDNA.
+</p>

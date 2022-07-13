@@ -1,0 +1,7 @@
+#A Paul Hoffman
+#C RFC 9103 updates many places
+#L 1
+<p>
+@@RFC9103@@, particularly in Section 6, updates RFC 1995 in many places
+to make use of TCP in IXFR much more efficient.
+</p>

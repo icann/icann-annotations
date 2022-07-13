@@ -1,0 +1,21 @@
+#A Paul Hoffman
+#C RFC 6604 updates how to set the RCODE field in CNAME and DNAME chains
+#S 2.1
+<p>
+@@RFC6604@@ says:
+<br>
+<pre>
+Section 2.1 of [RFC2308] implies that the RCODE should
+be set based on the last query cycle in the case of an xNAME chain,
+but Section 2.2.1 of [RFC2308] says that some servers don't do that!
+
+When there is an xNAME chain, the RCODE field is set as follows:
+
+   When an xNAME chain is followed, all but the last query cycle
+   necessarily had no error.  The RCODE in the ultimate DNS response
+   MUST BE set based on the final query cycle leading to that
+   response.  If the xNAME chain was terminated by an error, it will
+   be that error code.  If the xNAME chain terminated without error,
+   it will be zero.
+</pre>
+</p>

@@ -1,0 +1,17 @@
+#A Paul Hoffman
+#C RFC 8490 redefines what is a "session"
+#L 181
+<p>
+The abstract of @@RFC8490@@ says:
+<pre>
+This document updates RFC 7766 by redefining a session,
+providing new guidance on connection reuse, and providing a new
+mechanism for handling session idle timeouts.
+</pre>
+It changes the inactivity timeout handling and connection sharing from this RFC.
+</p>
+<p>
+Note that the changes from  @@RFC8490@@ are only required when
+performing DNS stateful operations, which is signalled by
+using the DSO opcode (value 6).
+</p>

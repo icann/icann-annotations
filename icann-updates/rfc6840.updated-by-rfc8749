@@ -1,0 +1,19 @@
+#A Paul Hoffman
+#C RFC 8749
+#S C.3
+<p>The abstrct of @@RFC8749@@ says:
+<br/>
+"Furthermore, this document ... updates RFC 6840 by excluding the DLV registries from the trust anchor selection."
+</p>
+<p>Section 4.1.2.2 of @@RFC8749@@ says:
+<pre>
+RFC 6840 ("Clarifications and Implementation Notes for DNS Security (DNSSEC)")
+[RFC6840] states that when trust anchors come from different sources, a
+validator may choose between them based on the perceived reliability of those
+sources. But in reality, this does not happen in validators (both BIND 9 and
+Unbound have an option for a DLV trust anchor that can be used solely as a
+fallback).
+
+This document updates RFC 6840 [RFC6840] to exclude the DLV registries from the trust anchor selection.
+</pre>
+</p>

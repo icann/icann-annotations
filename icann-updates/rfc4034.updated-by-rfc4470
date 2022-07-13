@@ -1,0 +1,21 @@
+#A Paul Hoffman
+#C RFC 4470 relaxes the "next owner name" requirement
+#S 4.1.1
+<p>
+Section 3 of @@RFC4470@@ explicitly changes how the "next name"
+field is calculated. It says:
+</p>
+<p>
+<pre>
+In the "next name" field of instantiated names' NSEC records, rather
+than list the next instantiated name in the zone, list any name that
+falls lexically after the NSEC's owner name and before the next
+instantiated name in the zone, according to the ordering function in
+RFC 4034 [2] Section 6.1.  This relaxes the requirement in Section
+4.1.1 of RFC 4034 that the "next name" field contains the next owner
+name in the zone.  This change is expected to be fully compatible
+with all existing DNSSEC validators.  These NSEC records are returned
+whenever proving something specifically about the owner name (e.g.,
+that no resource records of a given type appear at that name).
+</pre>
+</p>

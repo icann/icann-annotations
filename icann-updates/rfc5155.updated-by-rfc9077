@@ -1,0 +1,37 @@
+#A Paul Hoffman
+#C RFC 9077 updates the TTL values
+#L 1
+<p>@@RFC9077@@ has significant updates to the way that TTL values are calculated.
+See two updates below.
+</p>
+####################
+#A Paul Hoffman
+#C Changes to the TTL values from RFC 9077
+#L 372
+<p>@@RFC9077@@ changes "The NSEC3 RR SHOULD have the same TTL value as the SOA minimum TTL
+field.  This is in the spirit of negative caching [RFC2308]." to:
+<br/>
+<pre>
+The TTL of the NSEC3 RR that is returned MUST be the lesser of the
+MINIMUM field of the SOA record and the TTL of the SOA itself.
+This matches the definition of the TTL for negative responses in
+[RFC2308].  Because some signers incrementally update the NSEC3
+chain, a transient inconsistency between the observed and expected
+TTL MAY exist.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C Changes to the TTL values from RFC 9077
+#L 844
+<p>@@RFC9077@@ changes "The TTL value for any NSEC3 RR SHOULD be the same as the
+minimum TTL value field in the zone SOA RR." to:
+<br/>
+<pre>
+*  The TTL value for each NSEC3 RR MUST be the lesser of the
+   MINIMUM field of the zone SOA RR and the TTL of the zone SOA RR
+   itself.  Because some signers incrementally update the NSEC3
+   chain, a transient inconsistency between the observed and
+   expected TTL MAY exist.
+</pre>
+</p>

@@ -1,0 +1,57 @@
+#A Paul Hoffman
+#C RFC 7671 sets best practices
+#S 1
+<p>The introduction to @@RFC7671@@ says:
+<pre>
+[RFC6698] defines three TLSA record fields: the first with four
+possible values, the second with two, and the third with three.
+These yield 24 distinct combinations of TLSA record types.  This
+document recommends a smaller set of best-practice combinations of
+these fields to simplify protocol design, implementation, and
+deployment.
+</pre>
+</p>
+
+<p>
+Section 12 of @@RFC7671@@ gives an extensive list of what it updates:
+<pre>
+12.  Summary of Updates to RFC 6698
+
+   o  Section 3 updates [RFC6698] to specify a requirement for clients
+      to support at least TLS 1.0 and to support SNI.
+
+   o  Section 4 explains that application support for all four
+      certificate usages is NOT RECOMMENDED.  The recommended design is
+      to support just DANE-EE(3) and DANE-TA(2).
+
+   o  Section 5.1 updates [RFC6698] to specify that peer identity
+      matching and validity period enforcement are based solely on the
+      TLSA RRset properties.  It also specifies DANE authentication of
+      raw public keys [RFC7250] via TLSA records with certificate usage
+      DANE-EE(3) and selector SPKI(1).
+
+   o  Section 5.2 updates [RFC6698] to require that servers publishing
+      digest TLSA records with a usage of DANE-TA(2) MUST include the
+      TA certificate in their TLS server certificate message.  This
+      extends to the case of "2 1 0" TLSA records that publish a full
+      public key.
+
+   o  Section 5.4 observes that with usage PKIX-TA(0), clients may need
+      to process extended trust chains beyond the first trusted issuer
+      when that issuer is not self-signed.
+
+   o  Section 7 recommends that DANE application protocols specify that,
+      when possible, securely CNAME-expanded names be used to derive the
+      TLSA base domain.
+
+   o  Section 8 specifies a strategy for managing TLSA records that
+      interoperates with DANE clients regardless of what subset of the
+      possible TLSA record types (combinations of TLSA parameters) is
+      supported by the client.
+
+   o  Section 9 specifies a digest algorithm agility protocol.
+
+   o  Section 10.1 recommends against the use of Full(0) TLSA records,
+      as digest records are generally much more compact.
+</pre>
+</p>

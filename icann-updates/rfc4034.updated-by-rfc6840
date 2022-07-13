@@ -1,0 +1,59 @@
+#A Paul Hoffman
+#C RFC 6840 and clarifications for DNSSEC
+#L 1
+<p>
+@@RFC6840@@ has many significant updates to earlier DNSSEC-related RFCs.
+Updates and clarifications for RFC 4034 are given later in this document.
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 corrects the calculiation for canonical forms
+#L 1024
+<p>
+Section 5.1 of @@RFC6840@@ is titled "Errors in Canonical Form Type Code List".
+It specifies:
+</p>
+<p>
+<pre>
+When canonicalizing DNS names (for both ordering and signing), DNS
+names in the RDATA section of NSEC resource records are not converted
+to lowercase.  DNS names in the RDATA section of RRSIG resource
+records are converted to lowercase.
+</pre>
+</p>
+<p>
+It makes this specification because:
+<p>
+<pre>
+The guidance in the above paragraph differs from what has been
+published before but is consistent with current common practice.
+Item 3 of Section 6.2 of [RFC4034] says that names in both of these
+RR types should be converted to lowercase.  The earlier [RFC3755]
+says that they should not.  Current practice follows neither document
+fully.
+
+Section 6.2 of [RFC4034] also erroneously lists HINFO as a record
+that needs conversion to lowercase, and twice at that.  Since HINFO
+records contain no domain names, they are not subject to case
+conversion.
+</pre>
+</p>
+####################
+#A Paul Hoffman
+#C RFC 6840 corrects the calculation of the key tag field
+#S B.1
+<p>
+Section 5.5 of @@RFC6840@@ is titled "Key Tag Calculation".
+It says:
+</p>
+<p>
+<pre>
+Appendix B.1 of [RFC4034] incorrectly defines the Key Tag field
+calculation for algorithm 1.  It correctly says that the Key Tag is
+the most significant 16 of the least significant 24 bits of the
+public key modulus.  However, [RFC4034] then goes on to incorrectly
+say that this is fourth-to-last and third-to-last octets of the
+public key modulus.  It is, in fact, the third-to-last and second-to-
+last octets.
+</pre>
+</p>
