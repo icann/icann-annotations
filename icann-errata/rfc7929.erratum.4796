@@ -1,0 +1,31 @@
+#A Daniel Kahn Gillmor
+#S 3
+#L 417
+#T Technical
+#X errata_id:4796
+#X checksum:aabe0eb6c4d3eab8b3eade9bd5b2eb10
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+   6.  The domain name (the "right-hand side" of the email address,
+       called the "domain" in [RFC5322]) is appended to the result of
+       step 2 to complete the prepared domain name.
+
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   6.  The domain name (the "right-hand side" of the email address,
+       called the "domain" in [RFC5322]) is appended to the result of
+       step <del>2</del><ins>5</ins> to complete the prepared domain name.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Technically, it should be step 5, not step 2: after step 2, there is no
+_openpgpkey label in the composed domain name.  step 5 adds the
+_openpgpkey label.
+</div>
+

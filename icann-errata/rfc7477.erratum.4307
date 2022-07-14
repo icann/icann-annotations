@@ -1,0 +1,24 @@
+#A Donald Eastlake 3rd
+#S sec 2, page 4
+#L 175
+#T Editorial
+#X errata_id:4307
+#X checksum:5b9f59e53c24d703db24889219dde206
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+nonpunishable data
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+nonpu<del>n</del><ins>bl</ins>ishable data
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+confusing typo, confirmed with author.
+</div>
+
