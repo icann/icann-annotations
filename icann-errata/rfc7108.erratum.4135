@@ -1,0 +1,28 @@
+#A Mauricio Vergara Ereche
+#S 4
+#L 179
+#T Editorial
+#X errata_id:4135
+#X checksum:5ec07f1b8fe5485180bd0cc8b4484e80
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+   Using HOSTNAME.BIND/CH/TXT (Section 4.2), ID.SERVER/CH/TXT
+   (Section 4.3), or IDENTITY.L.ROOT-SERVERS.ORG/IN/TXT or IDENTITY.L
+   .ROOT-SERVERS/IN/A (Section 4.4)
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   Using HOSTNAME.BIND/CH/TXT (Section 4.2), ID.SERVER/CH/TXT
+   (Section 4.3), or IDENTITY.L.ROOT-SERVERS.ORG/IN/TXT or IDENTITY.L
+   .ROOT-SERVERS<ins>.ORG</ins>/IN/A (Section 4.4)
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Fixing missing .ORG in FQDN
+</div>
+

@@ -1,0 +1,26 @@
+#A Peter Occil
+#S 9.12
+#L 1436
+#T Technical
+#X errata_id:5478
+#X checksum:9fe07987a5915f65fbb9481a9a8c77ff
+#X errata_status_code:Reported
+#
+#
+<div class="original"><pre>
+   L: Control(cp) = True
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   L: <del>Control</del><ins>General_Category</ins>(cp) = <del>True</del><ins>Cc</ins>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Nothing in the Unicode Standard (including UAX 44) defines a property or
+function named Control.  What is probably meant is the General_Category
+property value Control, which is abbreviated Cc.
+</div>
+
