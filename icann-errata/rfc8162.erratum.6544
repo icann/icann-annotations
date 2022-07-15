@@ -1,0 +1,24 @@
+#A Kaspar Etter
+#S 1
+#L 95
+#T Editorial
+#X errata_id:6544
+#X checksum:2d6059f8c8dfcd687805106446850ba7
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+Others to want mitigate the difficulty of finding certificates from outside the enterprise.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+Others <del>to </del>want <ins>to </ins>mitigate the difficulty of finding certificates from outside the enterprise.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Wrong order of words.
+</div>
+
