@@ -8,7 +8,7 @@ Section 4 of @@RFC2308@@ says:
 The Master File format [RFC 1035 Section 5] is extended to include
 the following directive:
 
-$TTL &amp;lt;TTL&amp;gt; [comment]
+$TTL <TTL> [comment]
 
 All resource records appearing after the directive, and which do not
 explicitly include a TTL value, have their TTL set to the TTL given

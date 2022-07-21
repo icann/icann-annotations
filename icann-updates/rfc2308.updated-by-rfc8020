@@ -12,7 +12,7 @@ Section 3.2 of @@RFC8020@@ replaces this paragraph with:
 <pre>
 A negative answer that resulted from a name error (NXDOMAIN)
 should be cached such that it can be retrieved and returned in
-response to another query for the same &amp;lt;QNAME, QCLASS&amp;gt; that
+response to another query for the same <QNAME, QCLASS> that
 resulted in the cached negative response, or where the QNAME is a
 descendant of the original QNAME and the QCLASS is the same.
 </pre>
