@@ -75,5 +75,5 @@ format. So proper form of CDS record should contain two zeroes in place
 of the digest.
 <br/><br/>
 [ AD Note: Discussion on the DNSOP list: - <https://www.ietf.org/mail-archive/web/dnsop/current/msg20267.html> ]
-</pre></div>
+</div>
 

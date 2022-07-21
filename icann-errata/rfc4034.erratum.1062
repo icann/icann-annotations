@@ -42,5 +42,5 @@ neither TXT nor HINFO contain domain names in RDATA, so it's a bug in
 both
 RFC 3597 and 4034, although one that doesn't hurt. One could also argue
 that the list lacks NSAP-PTR, but then that's as obsolete as MD ans MF.
-</pre></div>
+</div>
 
