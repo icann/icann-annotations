@@ -1,6 +1,6 @@
 #A Mukund Sivaraman
 #S 8.2.3
-#L 807
+#F present, as unknown EDNS options are supposed to be ignored by the server
 #T Editorial
 #X errata_id:6783
 #X checksum:e504c65de335f1e887f68786af558dc6
