@@ -1,11 +1,11 @@
-#A Paul Hoffman
+#A ICANN
 #C RFC 9077 extensively updates this document
 #L 12
 @@RFC9077@@ changes the definition of the NSEC and NSEC3 TTL to fix a
 problem where aggressive use of NSEC and NSEC3 records may deny the
 existence of names far beyond the intended lifetime of a denial.
 ####################
-#A Paul Hoffman
+#A ICANN
 #C RFC 9077 extensively updates this document
 #S 5.4
 <div>

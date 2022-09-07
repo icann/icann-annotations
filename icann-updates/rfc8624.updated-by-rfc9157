@@ -1,4 +1,4 @@
-#A Paul Hoffman
+#A ICANN
 #C RFC 9157 updates the implementation recommendation for RFCs that are not on the standards track 
 #L 142
 <p>
@@ -14,7 +14,7 @@ will be specified as MAY in this document only when it has been
 downgraded from a MUST or a RECOMMENDED to a MAY.
 </pre>
 ####################
-#A Paul Hoffman
+#A ICANN
 #C RFC 9157 updates the IANA considerations 
 #S 6
 <p>The following IANA considerations are added by @@RFC9157@@:
