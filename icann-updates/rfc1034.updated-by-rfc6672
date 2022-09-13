@@ -1,0 +1,6 @@
+#A Petr Špaček
+#C This algorithm is obsolete, see RFC 6672
+#S 4.3.2
+<p>
+@@RFC6672@@ redefined algorithm listed here to take into account subtree redirection provided by DNAME RR type.
+</p>
