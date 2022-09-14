@@ -1,0 +1,95 @@
+#A Scott Hollenbeck
+#S 5.2 and 5.3
+#L 1214
+#T Technical
+#X errata_id:4503
+#X checksum:05a1eabb8d3b2871efcf65dead87f9b9
+#X errata_status_code:Verified
+#
+#
+<div class="original">In Section 5.2:<pre>
+"ldhName" : "ns1.xn--fo-5ja.example",
+"unicodeName" : "ns1.foo.example",
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+"ldhName" : "ns1.xn--fo-5ja.example",
+"unicodeName" : "ns1.f<del>o</del><ins>ó</ins>o.example",
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+The unicodeName examples in RFC 7483 are invalid per @@RFC 5890@@. Here's an
+example from Section 5.2 on page 23:
+<br/><br/>
+"unicodeName" : "ns1.foo.example",
+<br/><br/>
+@@Section 3@@ of 7483 says this about Unicode names:
+<br/><br/>
+"Unicode names: Textual representations of DNS names where one or more
+of the labels are U-labels as described by [RFC5890]."
+<br/><br/>
+5890 says: "A "U-label" is an IDNA-valid string of Unicode characters,
+in Normalization Form C (NFC) and including at least one non-ASCII
+character, expressed in a standard Unicode Encoding Form (such as
+UTF-8)."
+<br/><br/>
+The examples in 7483 contain all ASCII characters. Syntactically valid
+examples are shown in the corrected text.
+</div>
+####################
+#L 1726
+#
+#
+<div class="original">In Section 5.3:<pre>
+"ldhName" : "xn--fo-5ja.example",
+"unicodeName" : "foo.example",
+
+"ldhName" : "xn--fo-cka.example",
+"unicodeName" : "foo.example"
+
+"ldhName" : "xn--fo-fka.example",
+"unicodeName" : "foo.example"
+
+"ldhName": "xn--fo-8ja.example",
+"unicodeName" : "foo.example"
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+"ldhName" : "xn--fo-5ja.example",
+"unicodeName" : "f<del>o</del><ins>ó</ins>o.example",
+
+"ldhName" : "xn--fo-cka.example",
+"unicodeName" : "f<del>o</del><ins>õ</ins>o.example"
+
+"ldhName" : "xn--fo-fka.example",
+"unicodeName" : "f<del>o</del><ins>ö</ins>o.example"
+
+"ldhName" : "xn--fo-8ja.example",
+"unicodeName" : "f<del>o</del><ins>ô</ins>o.example"
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+The unicodeName examples in RFC 7483 are invalid per @@RFC 5890@@. Here's an
+example from Section 5.2 on page 23:
+<br/><br/>
+"unicodeName" : "ns1.foo.example",
+<br/><br/>
+@@Section 3@@ of 7483 says this about Unicode names:
+<br/><br/>
+"Unicode names: Textual representations of DNS names where one or more
+of the labels are U-labels as described by [RFC5890]."
+<br/><br/>
+5890 says: "A "U-label" is an IDNA-valid string of Unicode characters,
+in Normalization Form C (NFC) and including at least one non-ASCII
+character, expressed in a standard Unicode Encoding Form (such as
+UTF-8)."
+<br/><br/>
+The examples in 7483 contain all ASCII characters. Syntactically valid
+examples are shown in the corrected text.
+</div>
