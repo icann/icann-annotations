@@ -1,0 +1,33 @@
+#A Joeri de Ruiter
+#S b.1.
+#F specificity.  One example would be to replace all TCP/UDP port
+#T Technical
+#X errata_id:6629
+#X checksum:23f0d7e19e67a9348da918063073f03a
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+One example would be to replace all TCP/UDP port
+numbers with one of two fixed values indicating whether the
+original port was ephemeral (>=1024) or nonephemeral (>1024).
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+One example would be to replace all TCP/UDP port
+numbers with one of two fixed values indicating whether the
+original port was ephemeral (>=1024) or nonephemeral (<del>&gt;</del><ins>&lt;</ins>1024).
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Nonephemeral port numbers are &lt;1024
+<br/><br/>
+--- Verifier note ---
+<br/>
+The errata is indeed a real typo. As it is in appendix, "held for
+document update" was selected.
+</div>
+

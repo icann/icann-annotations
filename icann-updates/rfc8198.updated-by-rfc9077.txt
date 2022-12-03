@@ -1,0 +1,44 @@
+#A ICANN
+#C RFC 9077 extensively updates this document
+#L 12
+@@RFC9077@@ changes the definition of the NSEC and NSEC3 TTL to fix a
+problem where aggressive use of NSEC and NSEC3 records may deny the
+existence of names far beyond the intended lifetime of a denial.
+####################
+#A ICANN
+#C RFC 9077 extensively updates this document
+#S 5.4
+<div>
+@@RFC9077@@ says:
+<pre>
+But the NSEC and NSEC3 RRs should, according to @@RFC4034@@ and
+@@RFC5155@@, already be at the value of the MINIMUM field in the SOA.
+Thus, the advice from @@RFC8198@@ would not actually change the TTL
+used for the NSEC and NSEC3 RRs for authoritative servers that follow
+the RFCs.
+</pre>
+<p>It also says:</p>
+<pre>
+@@RFC8198@@, Section 5.4 ("Consideration on TTL") is completely
+replaced by the following text:
+
+|  The TTL value of negative information is especially important,
+|  because newly added domain names cannot be used while the negative
+|  information is effective.
+|  
+|  Section 5 of @@RFC2308@@ suggests a maximum default negative cache
+|  TTL value of 3 hours (10800).  It is RECOMMENDED that validating
+|  resolvers limit the maximum effective TTL value of negative
+|  responses (NSEC/NSEC3 RRs) to this same value.
+|  
+|  A resolver that supports aggressive use of NSEC and NSEC3 MAY
+|  limit the TTL of NSEC and NSEC3 records to the lesser of the
+|  SOA.MINIMUM field and the TTL of the SOA in a response, if
+|  present.  It MAY also use a previously cached SOA for a zone to
+|  find these values.
+
+(The third paragraph of the original is removed, and the fourth
+paragraph is updated to allow resolvers to also take the lesser of
+the SOA TTL and SOA MINIMUM.)
+</pre>
+</div>

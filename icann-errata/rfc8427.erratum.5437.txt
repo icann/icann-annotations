@@ -1,0 +1,80 @@
+#A Richard Gibson
+#S 2
+#L 281
+#T Technical
+#X errata_id:5437
+#X checksum:920a0b2ec88d15de15b29df55efa79f8
+#X errata_status_code:Held for Document Update
+#
+#
+<div class="original"><pre>
+2.1.  Message Object Members
+   o  compressedQNAME - Object that describes the name with two optional
+      values: "isCompressed" (with a value of 0 for no and 1 for yes)
+      and "length" (with an integer giving the length in the message)
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+2.1.  Message Object Members
+   o  compressedQNAME - Object that describes the name with two optional
+      values: "isCompressed" (with a value of 0 for no and 1 for yes)
+      and "length" (<del>with an integer giving the length in the message</del><ins>
+      an integer giving the count of octets of the name in
+      the message, including but not following compression pointers</ins>)
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+"length in the message" is ambiguous for compressed names... taking for
+example a compressed domain name that represents "a.b.example.com." as
+0x0161 0x0162 0xC00C (i.e., label "a", then label "b", then a pointer to
+"example.com." at offset 12), it could mean 1) the count of octets
+constituting the absolute name, including both compression pointers and
+labels referenced by them (6+13=19), or 2) the count of octets of the
+compression pointer plus immediately preceding labels (6), or 3) the
+count of octets of labels _preceding_ the compression pointer (4), or
+even 4) the offset in the compression pointer (12).
+<br/><br/>
+The above Corrected Text specifies option 3, because that interpretation
+allows for the most uniform treatment of compressed vs. uncompressed
+names.
+</div>
+####################
+#L 318
+<div class="original"><pre>
+2.2.  Resource Record Object Members
+   o  compressedNAME - Object that describes the name with two optional
+      values: "isCompressed" (with a value of 0 for no and 1 for yes)
+      and "length" (with an integer giving the length in the message)
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+2.2.  Resource Record Object Members
+   o  compressedNAME - Object that describes the name with two optional
+      values: "isCompressed" (with a value of 0 for no and 1 for yes)
+      and "length" (<del>with an integer giving the length in the message</del><ins>
+      an integer giving the count of octets of the name in
+      the message, including but not following compression pointers</ins>)
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+"length in the message" is ambiguous for compressed names... taking for
+example a compressed domain name that represents "a.b.example.com." as
+0x0161 0x0162 0xC00C (i.e., label "a", then label "b", then a pointer to
+"example.com." at offset 12), it could mean 1) the count of octets
+constituting the absolute name, including both compression pointers and
+labels referenced by them (6+13=19), or 2) the count of octets of the
+compression pointer plus immediately preceding labels (6), or 3) the
+count of octets of labels _preceding_ the compression pointer (4), or
+even 4) the offset in the compression pointer (12).
+<br/><br/>
+The above Corrected Text specifies option 3, because that interpretation
+allows for the most uniform treatment of compressed vs. uncompressed
+names.
+</div>
+

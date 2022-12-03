@@ -1,0 +1,50 @@
+#A Robert Edmonds
+#S 6
+#L 297
+#T Technical
+#X errata_id:4644
+#X checksum:0151c0b72051dee00b9ae8afbc3d0084
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+QNAME minimisation can decrease performance in some cases -- for
+instance, for a deep domain name (like
+www.host.group.department.example.com, where 
+host.group.department.example.com is hosted on example.com's name
+servers).  Let's assume a resolver that knows only the name servers of
+.example.  Without QNAME minimisation, it would send these .example name
+servers a query for www.host.group.department.example.com and
+immediately get a specific referral or an answer, without the need for
+more queries to probe for the zone cut.  For such a name, a cold
+resolver with QNAME minimisation will, depending on how QNAME
+minimisation is implemented, send more queries, one per label.  Once the
+cache is warm, there will be no difference with a traditional resolver.
+Actual testing is described in [Huque-QNAME-Min].  Such deep domains are
+especially common under ip6.arpa.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+QNAME minimisation can decrease performance in some cases -- for 
+instance, for a deep domain name (like
+www.host.group.department.example.com, where 
+host.group.department.example.com is hosted on example.com's name
+servers).  Let's assume a resolver that knows only the name servers of
+.example<ins>.com</ins>.  Without QNAME minimisation, it would send these .example<ins>.com</ins> name
+servers a query for www.host.group.department.example.com and
+immediately get a specific referral or an answer, without the need for
+more queries to probe for the zone cut.  For such a name, a cold
+resolver with QNAME minimisation will, depending on how QNAME
+minimisation is implemented, send more queries, one per label.  Once the
+cache is warm, there will be no difference with a traditional resolver.
+Actual testing is described in [Huque-QNAME-Min].  Such deep domains are
+especially common under ip6.arpa.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+Changed ".example" to ".example.com".
+</div>
+

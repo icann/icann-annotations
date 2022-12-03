@@ -1,0 +1,38 @@
+#A Paul Hoffman
+#S 2.1.2
+#L 295
+#T Technical
+#X errata_id:5932
+#X checksum:89381a48d333e24433a59f0206c2017c
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+  Note that the KeyDigest element is optional; if it
+  is not given, the trust anchor can be used until a KeyDigest element
+  covering the same DNSKEY record, but having a validUntil attribute,
+  is trusted by the relying party.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+  Note that <ins>the validUntil attribute of </ins>the KeyDigest element is
+  optional<del>; if it
+  is not given, the trust anchor can be used until a KeyDigest element
+  covering the same DNSKEY record, but having a validUntil attribute,
+  is trusted by the relying party.</del><ins>. If the relying party is using a trust anchor that has a
+  KeyDigest element that does not have a validUntil attribute, it can
+  change to a trust anchor with a KeyDigest element that does have a
+  validUntil attribute, as long as that trust anchor's validUntil
+  attribute is in the future and the DNSKEY elements of the KeyDigest
+  are the same as the previous trust anchor.</ins>
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+It is the validUntil attribute that is optional, not the KeyDigest
+element. Also, it was noted that the sentence did not clearly explain
+the logic.
+</div>
+

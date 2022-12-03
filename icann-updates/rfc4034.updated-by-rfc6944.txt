@@ -1,0 +1,9 @@
+#A ICANN
+#C Updates for applicability
+#L 1
+<p>
+@@RFC6944@@, which was obsoleted by @@RFC8624@@,
+updates the list of agorithms in RFC 4034.
+It does not appear to change any of the algorithms
+themselves.
+</p>

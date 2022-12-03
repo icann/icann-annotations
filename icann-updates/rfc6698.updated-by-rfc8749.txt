@@ -1,0 +1,6 @@
+#A ICANN
+#C RFC 8749
+#S 8.1
+<p>
+The abstract of @@RFC8749@@ says "...this document updates RFC 6698 by excluding the DLV resource record from certificates." Section 4.1.2.1 of @@RFC8749@@ says "This document updates RFC 6698 [RFC6698] to exclude the DLV resource record from certificates."
+</p>

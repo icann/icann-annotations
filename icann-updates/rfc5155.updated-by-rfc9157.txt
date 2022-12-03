@@ -1,0 +1,10 @@
+#A ICANN
+#C IANA considerations updated by RFC 9157
+#S 11
+<p>@@RFC9157@@ updates the IANA considerations
+Section 4 of that document says: " In the "Domain Name System Security (DNSSEC) NextSECure3 (NSEC3)
+Parameters" registry, the registration procedure for "DNSSEC NSEC3
+Flags", "DNSSEC NSEC3 Hash Algorithms", and "DNSSEC NSEC3PARAM Flags"
+has been changed from "Standards Action" to "RFC Required", and this
+document has been added as a reference."
+</p>

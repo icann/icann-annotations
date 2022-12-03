@@ -1,0 +1,13 @@
+#A ICANN
+#C RFC 4470 redefines minimally covering NSEC records
+#S 2.3
+<p>
+Section 3 of @@RFC4470@@ says:
+<br>
+<pre>
+The generated NSEC record's type bitmap MUST have the RRSIG and NSEC
+bits set and SHOULD NOT have any other bits set.  This relaxes the
+requirement in Section 2.3 of RFC4035 that NSEC RRs not appear at
+names that did not exist before the zone was signed.
+</pre>
+</p>

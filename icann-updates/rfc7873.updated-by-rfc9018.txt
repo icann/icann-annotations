@@ -1,0 +1,12 @@
+#A ICANN
+#C Significnatly updated by RFC 9018
+#L 1 
+<p>@@RFC9018@@ is a significant update throughout this document. As the abstract of RFC 9018 says:
+<br><pre>
+This document updates RFC 7873 with precise directions for creating
+Server Cookies so that an anycast server set including diverse
+implementations will interoperate with standard clients, with
+suggestions for constructing Client Cookies in a privacy-preserving
+fashion, and with suggestions on how to update a Server Secret.
+</pre>
+</p>

@@ -1,0 +1,21 @@
+#A Matt McCutchen
+#S 2.1.1
+#L 499
+#T Technical
+#X errata_id:5395
+#X checksum:ac1fc094848823f3dcf70e42683bbd9d
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+   DNS records that would be
+   classified "indeterminate" in the sense of [RFC4035] are simply
+   classified as "insecure".
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   DNS records that would be
+   classified "indeterminate" in the sense of [RFC403<del>5</del><ins>3</ins>] are simply
+   classified as "insecure".
+</pre></div>

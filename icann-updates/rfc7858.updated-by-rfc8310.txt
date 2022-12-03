@@ -1,0 +1,9 @@
+#A ICANN
+#C Usage profiles given in RFC 8310
+#L 1
+<p>This document defines DoT. @@RFC8310@@ defines profiles
+for how it might be used in operation.
+RFC 8310 does not specify technical changes to DoT,
+but gives extensive advice on how it should be deployed
+in many scenarios.
+</p>

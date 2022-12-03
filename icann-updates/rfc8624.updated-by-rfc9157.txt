@@ -1,0 +1,32 @@
+#A ICANN
+#C RFC 9157 updates the implementation recommendation for RFCs that are not on the standards track 
+#L 142
+<p>
+@@RFC9157@@ replaces this paragraph with the following:</p>
+<pre>
+This document provides recommendations with respect to mandatory-
+to-implement algorithms, algorithms so weak that they cannot be
+recommended, and algorithms defined in RFCs that are not on the
+standards track.  Any algorithm listed in the [DNSKEY-IANA] and
+[DS-IANA] registries that are not mentioned in this document MAY
+be implemented.  For clarification and consistency, an algorithm
+will be specified as MAY in this document only when it has been
+downgraded from a MUST or a RECOMMENDED to a MAY.
+</pre>
+####################
+#A ICANN
+#C RFC 9157 updates the IANA considerations 
+#S 6
+<p>The following IANA considerations are added by @@RFC9157@@:
+<pre>
+In the "Domain Name System Security (DNSSEC) NextSECure3 (NSEC3)
+Parameters" registry, the registration procedure for "DNSSEC NSEC3
+Flags", "DNSSEC NSEC3 Hash Algorithms", and "DNSSEC NSEC3PARAM Flags"
+has been changed from "Standards Action" to "RFC Required", and this
+document has been added as a reference.
+
+In the "DNSSEC Delegation Signer (DS) Resource Record (RR) Type
+Digest Algorithms" registry, the registration procedure for "Digest
+Algorithms" has been changed from "Standards Action" to "RFC
+Required", and this document has been added as a reference.
+</pre>

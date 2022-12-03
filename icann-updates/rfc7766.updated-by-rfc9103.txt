@@ -1,0 +1,19 @@
+#A ICANN
+#C RFC 9103 has many updates
+#L 1
+<p>
+@@RFC9103@@ (which defines DNS zone transfers over TLS) updates many part of this RFC.
+In specific, see Section 6.4 of @@RFC9103@@,
+but updates to this RFC are casually mentioned in many
+other places in @@RFC9103@@ as well.
+</p>
+####################
+#A ICANN
+#C RFC 9103 has many updates
+#L 441
+<p>
+@@RFC9103@@ (which defines DNS zone transfers over TLS) updates many part of this RFC.
+In specific, see Section 6.4 of @@RFC9103@@,
+but updates to this RFC are casually mentioned in many
+other places in @@RFC9103@@ as well.
+</p>

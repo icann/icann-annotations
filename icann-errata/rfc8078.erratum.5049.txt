@@ -1,0 +1,79 @@
+#A Ondřej Caletka
+#S 4
+#L 386
+#T Technical
+#X errata_id:5049
+#X checksum:e3184ede89583ffaf2954df47dcad926
+#X errata_status_code:Verified
+#
+#
+<div class="original"><pre>
+   The contents of the CDS or CDNSKEY RRset MUST contain one RR and only
+   contain the exact fields as shown below.
+
+      CDS 0 0 0 0
+
+      CDNSKEY 0 3 0 0
+
+   The keying material payload is represented by a single 0.  This
+   record is signed in the same way as regular CDS/CDNSKEY RRsets are
+   signed.
+
+   Strictly speaking, the CDS record could be "CDS X 0 X 0" as only the
+   DNSKEY algorithm is what signals the DELETE operation, but for
+   clarity, the "0 0 0 0" notation is mandated -- this is not a
+   definition of DS digest algorithm 0.  The same argument applies to
+   "CDNSKEY 0 3 0 0"; the value 3 in the second field is mandated by
+   [RFC4034], Section 2.1.2.
+</pre></div>
+#
+#
+<div class="correct">It should say:<pre>
+   The contents of the CDS or CDNSKEY RRset MUST contain one RR and only
+   contain the exact fields as shown below.
+
+      CDS 0 0 0 0<ins>0</ins>
+
+      CDNSKEY 0 3 0 <del>0</del><ins>AA==</ins>
+
+   The keying material payload is represented by a single octet with
+   the value 00. This record is signed in the same way as regular
+   CDS/CDNSKEY RRsets are signed.
+
+   Strictly speaking, the CDS record could be "CDS X 0 X X" as only the
+   DNSKEY algorithm is what signals the DELETE operation, but for
+   clarity, the "0 0 0 0<ins>0</ins>" notation is mandated -- this is not a
+   definition of DS digest algorithm 0.  The same argument applies to
+   "CDNSKEY 0 3 0 <del>0</del><ins>AA==</ins>"; the value 3 in the second field is mandated by
+   [RFC4034], Section 2.1.2.
+</pre></div>
+#
+#
+<hr/>
+<div class="note">
+RFC 7344 defines both CDS and CDNSKEY record wire and presentation
+format to be identical to DS and DNSKEY wire and presentation format
+defined in RFC 4034.
+<br/><br/>
+In case of CDNSKEY record, RFC 4034 section 2.2 requires that:
+<br/>
+&gt; The Public Key field MUST be represented as a Base64 encoding of the
+Public Key.
+<br/><br/>
+As Base64 encoding encodes 6 bits into one character, one character
+alone can never be a valid Base64 sequence. The proper encoding of one-byte
+long sequence with binary value of 00 is AA==.
+<br/><br/>
+In case of CDS record, RFC 4034 section 5.3 requires that:
+&gt; The Digest MUST be represented as a sequence of case-insensitive
+hexadecimal digits
+<br/><br/>
+Although the value of a single 0 fulfils this requirement per se, it's
+not properly parsable by many implementations since it is expected to be
+even number of hex digits to align with octet boundaries in the wire
+format. So proper form of CDS record should contain two zeroes in place
+of the digest.
+<br/><br/>
+[ AD Note: Discussion on the DNSOP list: - <https://www.ietf.org/mail-archive/web/dnsop/current/msg20267.html> ]
+</div>
+
