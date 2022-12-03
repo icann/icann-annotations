@@ -1,8 +1,0 @@
-#A ICANN
-#C RFC 6014 doesn't seem to update RFC 4035
-#L 1
-<p>
-@@RFC6014@@ says that it updates RFC 4035, and talks about
-RFC 4035 in a few places, but doesn't seem to update
-any of the material in RFC 4035.
-</p>

@@ -1,7 +1,0 @@
-#A ICANN
-#C RFC 6895 and one DNS error number space for headers
-#S 2.6
-<p>
-@@RFC6895@@ clarifies "that there is one DNS error number space for headers, OPT
-extended headers, TSIG RRs, and TKEY RRs."
-</p>

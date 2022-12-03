@@ -1,6 +1,0 @@
-#A ICANN
-#C A few RFCs update RFC 1123's indication that TCP is optional for DNS
-#L 4081
-<p>This section indicates that TCP is optional (SHOUD-level) for DNS implementations;
-many later RFCs update this to make TCP required.
-</p>

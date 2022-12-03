@@ -1,8 +1,0 @@
-#A ICANN
-#C RFC 8767 updates many aspects of TTL calculations	
-#S 8
-<p>All of @@RFC8767@@ touches on aspects of how TTLs are calculated
-and used by resolvers. In particular, RFC 8767 says that it
-"updates RFC 2181 by interpreting values with the high-order bit set as being
-positive, rather than 0, and suggests a cap of 7 days".
-</p>
