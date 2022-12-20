@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 7766 clarifies TCP reordering
 #L 1721
 <p>

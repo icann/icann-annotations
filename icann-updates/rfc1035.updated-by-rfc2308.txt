@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 2308 adds $TTL to the master file format 
 #L 1805
 <p>

@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6895 and one DNS error number space for headers
 #S 2.6
 <p>

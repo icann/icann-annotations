@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 1982 has a better definition of serial number arithmetic
 #L 1503
 <p>@@RFC1982@@ clarifies how serial number arithmetic should be performed.

@@ -1,10 +1,10 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C Updates from RFC 6840
 #L 1
 <p>@@RFC6840@@, "Clarifications and Implementation Notes for DNSSEC",
 updates RFC 4035 in many places throughout the document.</p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 upgrades MAY to MUST for the BAD cache
 #S 4.7
 <p>Section 3.1 of @@RFC6840@@ says:
@@ -22,7 +22,7 @@ such event is documented in "Rolling Over DNSSEC Keys" [Huston].
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 updates nonexistence proofs
 #S 5.4
 <p>Section 4.1 of @@RFC6840@@ says:
@@ -56,7 +56,7 @@ to assume the nonexistence of any subdomain of that NSEC/NSEC3 RR's
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 says how to validate responses to an ANY query
 #S 5.3
 <p>Section 4.2 of @@RFC6840@@ says:
@@ -78,7 +78,7 @@ records at the QNAME in response to QTYPE=*.
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 describes how to check for responses chained through a CNAME
 #S 5
 <p>Section 4.3 of @@RFC6840@@ says:
@@ -99,7 +99,7 @@ set; thus, the response should have been a positive CNAME response.
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 gives more detail on insecure delegation proofs
 #S 5.2
 <p>Section 4.4 of @@RFC6840@@ says:
@@ -121,7 +121,7 @@ vulnerable to further attack.
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 updates how to handle unknown or unsupported message digest algorithms
 #L 1460
 <p>Section 5.2 of @@RFC6840@@ says:
@@ -138,7 +138,7 @@ algorithms.
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 updates how to handle private algorithms
 #S 5.2
 <p>Section 5.3 of @@RFC6840@@ gives an extensive discussion
@@ -146,7 +146,7 @@ of how to handle zones that are signed with private algorithms.
 It extends the processing given in Section 5.2 of RFC 4035.
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 updates how to handle local policy when there are multiple RRSIGs
 #S 5.3.3
 <p>Section 5.4 of @@RFC6840@@ says:
@@ -171,7 +171,7 @@ signatures.
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 defines the semantics of the AD bit
 #S 4.6
 <p>Section 5.7 of @@RFC6840@@ says:
@@ -202,7 +202,7 @@ DO bit or a set AD bit.
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 defines the semantics of the AD bit
 #S 3.2.3
 <p>
@@ -219,7 +219,7 @@ DO bit or a set AD bit.
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 says to always set the CD bit on queries
 #S 3.2.2
 <p>
@@ -254,7 +254,7 @@ Be sure to read Appendix B of @@RFC6840@@, which details
 the logic behind the recommendation to alwas set the CD bit on queries.
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 restates the mandatory algorithm rules
 #L 290
 <p>
@@ -293,7 +293,7 @@ test to support troubleshooting.
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C Instructions on finding zone cuts
 #S C.8
 <p>
@@ -306,7 +306,7 @@ Specific instructions can be found in Section 4.2 of [RFC4035].
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 shows errors in Appendix C.1
 #S C.1
 <p>
@@ -324,7 +324,7 @@ result of a wildcard expansion).
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 shows errors in Appendix C.1
 #S C.6
 <p>

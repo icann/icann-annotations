@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 and clarifications for DNSSEC
 #L 1
 <p>
@@ -6,7 +6,7 @@
 Updates and clarifications for RFC 4034 are given later in this document.
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 corrects the calculiation for canonical forms
 #L 1024
 <p>
@@ -39,7 +39,7 @@ conversion.
 </pre>
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6840 corrects the calculation of the key tag field
 #S B.1
 <p>

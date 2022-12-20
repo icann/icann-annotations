@@ -1,11 +1,11 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 3425 obsoletes IQUERY
 #L 1412
 <p>
 @@RFC3425@@ obsoletes IQUERY.
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 3425 obsoletes IQUERY
 #L 2221
 <p>

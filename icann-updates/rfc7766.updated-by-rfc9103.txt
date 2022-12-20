@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 9103 has many updates
 #L 1
 <p>
@@ -8,7 +8,7 @@ but updates to this RFC are casually mentioned in many
 other places in @@RFC9103@@ as well.
 </p>
 ####################
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 9103 has many updates
 #L 441
 <p>

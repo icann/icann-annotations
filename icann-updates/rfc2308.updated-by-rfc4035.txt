@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 4035 updates negative caching for DNSSEC
 #L 1
 <p>

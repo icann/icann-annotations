@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 9210 shows that TCP is useful for all DNS, not just zone transfers
 #L 45
 <p>@@RFC9210@@ requires all DNS implementations to support TCP.

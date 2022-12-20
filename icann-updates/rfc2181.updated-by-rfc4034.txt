@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 4034 and 4035 update the TTL rules
 #S 8
 <p>The last paragraph of Section 3 in @@RFC4034@@ updates

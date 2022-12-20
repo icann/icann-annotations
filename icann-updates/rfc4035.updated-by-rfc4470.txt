@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 4470 redefines minimally covering NSEC records
 #S 2.3
 <p>

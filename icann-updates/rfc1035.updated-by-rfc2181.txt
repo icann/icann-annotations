@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 2181 and the TTLs on SOA records
 #L 588
 <p>

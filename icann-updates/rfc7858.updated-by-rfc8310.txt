@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C Usage profiles given in RFC 8310
 #L 1
 <p>This document defines DoT. @@RFC8310@@ defines profiles

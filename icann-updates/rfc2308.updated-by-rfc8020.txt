@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 8020 updates NXDOMAIN caching
 #L 462
 <p>

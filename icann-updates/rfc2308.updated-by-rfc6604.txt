@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 6604 updates how to set the RCODE field in CNAME and DNAME chains
 #S 2.1
 <p>

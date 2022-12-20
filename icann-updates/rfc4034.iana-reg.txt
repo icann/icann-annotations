@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C IANA registry location
 #S 7
 <p>The IANA registries are at:

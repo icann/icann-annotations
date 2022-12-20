@@ -1,4 +1,4 @@
-#A ICANN
+#A P. Hoffman, ICANN
 #C RFC 2308 updates the method for negative caching
 #L 1420
 <p>
